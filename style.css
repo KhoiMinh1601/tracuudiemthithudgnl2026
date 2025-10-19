@@ -174,4 +174,57 @@ h1 {
 .right-img {
     right: 0;
 }
+/* Giao diện cho điện thoại - ẩn ảnh hai bên */
+@media screen and (max-width: 768px) {
+    .side-images,
+    .side-img {
+        display: none !important;
+    }
+
+    body {
+        padding: 20px 10px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 20px 15px;
+        box-shadow: none;
+        border-radius: 12px;
+    }
+
+    .logo {
+        max-width: 80%;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    #sbdInput {
+        width: 70%;
+        font-size: 15px;
+    }
+
+    #searchBtn {
+        padding: 10px 16px;
+        font-size: 15px;
+    }
+
+    .score-item span:first-child {
+        width: 100px;
+        font-size: 14px;
+    }
+
+    .score-bar-fill {
+        font-size: 12px;
+    }
+
+    .total-score span {
+        font-size: 22px;
+        padding: 5px 20px;
+    }
+}
+
 
