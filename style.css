@@ -198,11 +198,9 @@ h1 {
         max-width: 80%;
     }
 
-     h1 {
+  h1 {
         font-size: 1.4rem;
-        letter-spacing: 3.5px; /* khoảng cách giữ chữ tra cứu và ô nhập SBD */
     }
-
     #sbdInput {
         width: 70%;
         font-size: 15px;
@@ -238,6 +236,7 @@ h1 {
         font-size: 14px;
     }
 }
+
 
 
 
