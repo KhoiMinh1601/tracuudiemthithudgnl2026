@@ -5,21 +5,11 @@ body {
     font-family: 'Inter', sans-serif;
     background: #f8fafc;
     margin: 0;
-    padding: 40px 20px;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-}
-
-.container {
-    background: #fff;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    max-width: 900px;
-    width: 100%;
-    text-align: center;
+    overflow-x: hidden;
 }
 
 .logo {
@@ -153,33 +143,36 @@ h1 {
     left: 0;
     right: 0;
     height: 100vh;
-    pointer-events: none;
-    z-index: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    z-index: 0;
 }
 
-/* Ảnh bên trái và phải */
 .side-img {
     height: 100vh;
     object-fit: cover;
-    flex: 0 0 22vw;  /* 🔹 mỗi bên chiếm 22% chiều ngang màn hình, tự co giãn */
-    max-width: 420px; /* 🔹 không vượt quá 420px mỗi bên */
-    min-width: 250px; /* 🔹 không nhỏ hơn 250px để vẫn nhìn rõ */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    flex: 0 0 22vw;   /* mỗi ảnh chiếm ~22% chiều ngang màn hình */
+    max-width: 420px; /* giới hạn tối đa */
+    min-width: 250px; /* giới hạn tối thiểu */
 }
+
 
 /* Đặt container ở giữa */
 /* Nội dung chính ở giữa, tránh bị đè */
 .container {
     position: relative;
     z-index: 1;
-    width: 100%;
-    max-width: calc(100vw - 44vw); /* 🔹 chừa ra 22vw mỗi bên */
+    flex: 0 0 56vw; /* phần giữa chiếm khoảng 56% chiều ngang */
+    max-width: 900px;
+    min-width: 500px;
     margin: 0 auto;
-    background: white;
+    background: #fff;
     border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
 }
 
 /* Giao diện cho điện thoại - ẩn ảnh hai bên */
@@ -304,6 +297,7 @@ h1 {
     box-sizing: border-box;
     border-radius: 4px;
 }
+
 
 
 
