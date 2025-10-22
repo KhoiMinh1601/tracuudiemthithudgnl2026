@@ -147,7 +147,6 @@ h1 {
 }
 
 /* === Decorative Images === */
-/* ===== CỐ ĐỊNH ẢNH HAI BÊN KHÔNG ĐÈ LÊN NỘI DUNG ===== */
 .side-images {
     position: fixed;
     top: 0;
@@ -155,34 +154,32 @@ h1 {
     right: 0;
     height: 100vh;
     pointer-events: none;
-    z-index: 0; /* nằm dưới phần nội dung */
+    z-index: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
+/* Ảnh bên trái và phải */
 .side-img {
-    position: absolute;
-    top: 0;
     height: 100vh;
     object-fit: cover;
-    width: 350px; /* 👈 bạn có thể chỉnh 300–400 tùy ý */
+    flex: 0 0 22vw;  /* 🔹 mỗi bên chiếm 22% chiều ngang màn hình, tự co giãn */
+    max-width: 420px; /* 🔹 không vượt quá 420px mỗi bên */
+    min-width: 250px; /* 🔹 không nhỏ hơn 250px để vẫn nhìn rõ */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
-.left-img {
-    left: 0;
-}
-
-.right-img {
-    right: 0;
-}
-
+/* Đặt container ở giữa */
 /* Nội dung chính ở giữa, tránh bị đè */
 .container {
     position: relative;
     z-index: 1;
-    max-width: 900px;
+    width: 100%;
+    max-width: calc(100vw - 44vw); /* 🔹 chừa ra 22vw mỗi bên */
     margin: 0 auto;
     background: white;
     border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 /* Giao diện cho điện thoại - ẩn ảnh hai bên */
