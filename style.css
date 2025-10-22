@@ -1,6 +1,7 @@
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+/* ===== BỐ CỤC CHÍNH CO GIÃN THEO TỶ LỆ ===== */
 body {
     font-family: 'Inter', sans-serif;
     background: #f8fafc;
@@ -12,6 +13,67 @@ body {
     overflow-x: hidden;
 }
 
+/* Ảnh hai bên tự co giãn */
+.side-images {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.side-img {
+    height: 100vh;
+    object-fit: cover;
+    flex: 0 0 22vw;   /* mỗi ảnh chiếm ~22% chiều ngang màn hình */
+    max-width: 420px; /* giới hạn tối đa */
+    min-width: 250px; /* giới hạn tối thiểu */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Khung nội dung giữa, tự co giãn theo tỷ lệ */
+.container {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 56vw; /* phần giữa chiếm khoảng 56% chiều ngang */
+    max-width: 900px;
+    min-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+}
+
+/* Ẩn ảnh hai bên khi vào mobile */
+@media screen and (max-width: 900px) {
+    body {
+        flex-direction: column;
+        padding: 20px;
+        height: auto;
+    }
+
+    .side-images {
+        display: none !important;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        min-width: auto;
+        padding: 20px 15px;
+        box-shadow: none;
+        border-radius: 12px;
+    }
+}
+
+/* ======= LOGO + TIÊU ĐỀ ======= */
 .logo {
     max-width: 500px;
     margin-bottom: 20px;
@@ -21,8 +83,10 @@ h1 {
     color: #0f62fe;
     font-size: 2rem;
     margin-bottom: 20px;
+    letter-spacing: 1.5px;
 }
 
+/* ======= Ô TÌM KIẾM ======= */
 .search-container {
     margin-bottom: 30px;
 }
@@ -43,20 +107,24 @@ h1 {
     border-radius: 8px;
     margin-left: 8px;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 #searchBtn:hover {
     background: #0c4dc6;
+    transform: scale(1.03);
 }
 
-/* Card báo điểm */
+/* ======= THẺ KẾT QUẢ ======= */
 .score-report {
     border: 2px solid #1e40af;
     padding: 20px 30px;
     margin-top: 20px;
     background: #fff;
+    overflow-x: hidden;
 }
 
+/* Thông tin học sinh */
 .student-info-box {
     border: 1px solid #1e40af;
     padding: 15px;
@@ -71,192 +139,20 @@ h1 {
 
 .student-info-box strong {
     display: inline-block;
-    width: 200px;      /* chỉnh khoảng cách của ô trả thông tin học sinh */
+    width: 200px;
 }
 
-/* Thanh điểm */
-.score-bars {
-    margin-bottom: 20px;
-}
-
-.score-item {
-    display: flex;
-    align-items: center;
-    margin: 8px 0;
-    gap: 10px;
-}
-
-.score-item span:first-child {
-    width: 150px; /* Tên môn */
-    text-align: left;
-    font-weight: 600;
-}
-
-.score-item span:last-child {
-    width: 40px; /* Thang điểm */
-    text-align: right;
-}
-
-.score-bar {
-    flex: 1;
-    height: 22px;
-    background: #e5e7eb;
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
-}
-
-.score-bar-fill {
-    height: 100%;
-    background: #1e40af;
-    text-align: right;
-    padding-right: 5px;
-    color: white;
-    font-size: 13px;
-    line-height: 22px;
-    white-space: nowrap;
-}
-
-/* Tổng điểm */
-.total-score {
-    border-top: 2px solid #1e40af;
-    padding-top: 15px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 700;
-    color: #1e40af;
-}
-
-.total-score span {
-    display: inline-block;
-    margin-top: 8px;
-    font-size: 26px;
-    border: 2px solid #1e40af;
-    padding: 6px 25px;
-    border-radius: 40px;
-}
-
-/* === Decorative Images === */
-.side-images {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.side-img {
-    height: 100vh;
-    object-fit: cover;
-    flex: 0 0 22vw;   /* mỗi ảnh chiếm ~22% chiều ngang màn hình */
-    max-width: 420px; /* giới hạn tối đa */
-    min-width: 250px; /* giới hạn tối thiểu */
-}
-
-
-/* Đặt container ở giữa */
-/* Nội dung chính ở giữa, tránh bị đè */
-.container {
-    position: relative;
-    z-index: 1;
-    flex: 0 0 56vw; /* phần giữa chiếm khoảng 56% chiều ngang */
-    max-width: 900px;
-    min-width: 500px;
-    margin: 0 auto;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    text-align: center;
-}
-
-/* Giao diện cho điện thoại - ẩn ảnh hai bên */
-@media screen and (max-width: 768px) {
-    .side-images,
-    .side-img {
-        display: none !important;
-    }
-
-    body {
-        padding: 20px 10px;
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .container {
-        max-width: 100%;
-        padding: 20px 15px;
-        box-shadow: none;
-        border-radius: 12px;
-    }
-
-    .logo {
-        max-width: 80%;
-    }
-
-  h1 {
-        font-size: 1.4rem;
-    }
-    #sbdInput {
-        width: 70%;
-        font-size: 15px;
-    }
-   .search-container {
-        display: flex;
-        flex-direction: column; /* Đặt nút xuống dưới ô nhập */
-        align-items: center;    /* Canh giữa */
-        gap: 10px;              /* 🔹 Tạo khoảng cách giữa ô và nút */
-    }
-    #searchBtn {
-        padding: 10px 16px;
-        font-size: 15px;
-    }
-
-    .score-item span:first-child {
-        width: 100px;
-        font-size: 14px;
-    }
-
-    .score-bar-fill {
-        font-size: 12px;
-    }
-
-    .total-score span {
-        font-size: 22px;
-        padding: 5px 20px;
-    }
-}
-/* Điều chỉnh khoảng cách thông tin học sinh trên điện thoại */
-@media screen and (max-width: 768px) {
-    .student-info-box strong {
-        width: 130px; /* giảm từ 200 xuống còn 130 */
-        font-size: 14px;
-    }
-
-    .student-info-box p {
-        font-size: 14px;
-    }
-}
-/* Giới hạn vùng hiển thị thanh điểm và ngăn tràn ra ngoài */
-.score-report {
-    overflow-x: hidden; /* 🔹 tránh tràn ngang */
-}
-
-/* ==== CỐ ĐỊNH TỈ LỆ THANH ĐIỂM TRÊN MỌI MÁY ==== */
+/* ======= THANH ĐIỂM (CỐ ĐỊNH TỈ LỆ) ======= */
 .score-bars {
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 .score-item {
     display: grid;
-    grid-template-columns: 160px 1fr 50px; /* 👈 3 cột cố định: tên môn / thanh / thang điểm */
+    grid-template-columns: 160px 1fr 50px; /* tên môn / thanh / thang điểm */
     align-items: center;
     gap: 10px;
     width: 100%;
@@ -298,11 +194,85 @@ h1 {
     border-radius: 4px;
 }
 
+/* ======= TỔNG ĐIỂM ======= */
+.total-score {
+    border-top: 2px solid #1e40af;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e40af;
+}
 
+.total-score span {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 26px;
+    border: 2px solid #1e40af;
+    padding: 6px 25px;
+    border-radius: 40px;
+}
 
+/* ======= GIAO DIỆN CHO MOBILE ======= */
+@media screen and (max-width: 768px) {
+    .side-images,
+    .side-img {
+        display: none !important;
+    }
 
+    .container {
+        max-width: 100%;
+        padding: 20px 15px;
+        box-shadow: none;
+        border-radius: 12px;
+    }
 
+    .logo {
+        max-width: 80%;
+    }
 
+    h1 {
+        font-size: 1.4rem;
+    }
 
+    .search-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 
+    #sbdInput {
+        width: 100%;
+        font-size: 15px;
+    }
 
+    #searchBtn {
+        width: 100%;
+        font-size: 15px;
+        padding: 10px 16px;
+    }
+
+    .student-info-box strong {
+        width: 130px;
+        font-size: 14px;
+    }
+
+    .student-info-box p {
+        font-size: 14px;
+    }
+
+    .score-item span:first-child {
+        width: 100px;
+        font-size: 14px;
+    }
+
+    .score-bar-fill {
+        font-size: 12px;
+    }
+
+    .total-score span {
+        font-size: 22px;
+        padding: 5px 20px;
+    }
+}
