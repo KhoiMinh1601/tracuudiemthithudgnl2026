@@ -246,41 +246,56 @@ h1 {
     overflow-x: hidden; /* 🔹 tránh tràn ngang */
 }
 
+/* ==== CỐ ĐỊNH TỈ LỆ THANH ĐIỂM TRÊN MỌI MÁY ==== */
 .score-bars {
-    max-width: 100%;
-    overflow: hidden; /* 🔹 ẩn phần bar vượt khung */
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .score-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: 160px 1fr 50px; /* 👈 3 cột cố định: tên môn / thanh / thang điểm */
     align-items: center;
-    justify-content: space-between;
+    gap: 10px;
     width: 100%;
     box-sizing: border-box;
-    overflow: hidden;
-    gap: 8px;
+    margin: 8px 0;
+}
+
+.score-item span:first-child {
+    text-align: left;
+    font-weight: 600;
+}
+
+.score-item span:last-child {
+    text-align: right;
 }
 
 .score-bar {
-    flex: 1;
-    background: #e5e7eb;
+    width: 100%;
     height: 22px;
+    background: #e5e7eb;
     border-radius: 4px;
+    position: relative;
     overflow: hidden;
-    max-width: 100%;
 }
 
 .score-bar-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
     background: #1e40af;
     color: white;
     font-size: 13px;
     line-height: 22px;
-    padding-right: 5px;
-    white-space: nowrap;
     text-align: right;
+    padding-right: 6px;
+    white-space: nowrap;
     box-sizing: border-box;
+    border-radius: 4px;
 }
-
 
 
 
