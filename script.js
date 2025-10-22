@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function displayStudent(data) {
-        const infoFields = ['SBD', 'HỌ VÀ TÊN'];
+        const infoFields = ['SBD', 'HỌ VÀ TÊN',];
     const scoreFields = [
         {key: 'TIẾNG VIỆT', max: 300},
         {key: 'TIẾNG ANH', max: 300},
@@ -196,3 +196,4 @@ document.addEventListener('DOMContentLoaded', () => {
     loadStudentData(); // preload
 
 });
+
