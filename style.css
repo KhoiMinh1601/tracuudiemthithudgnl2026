@@ -147,24 +147,23 @@ h1 {
 }
 
 /* === Decorative Images === */
+/* ===== CỐ ĐỊNH ẢNH HAI BÊN KHÔNG ĐÈ LÊN NỘI DUNG ===== */
 .side-images {
     position: fixed;
     top: 0;
-    bottom: 0;
     left: 0;
     right: 0;
-    width: 100%;
+    height: 100vh;
     pointer-events: none;
-    z-index: 0;
+    z-index: 0; /* nằm dưới phần nội dung */
 }
 
 .side-img {
     position: absolute;
-    width: 400px;
+    top: 0;
     height: 100vh;
     object-fit: cover;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    transition: transform 0.3s ease;
+    width: 350px; /* 👈 bạn có thể chỉnh 300–400 tùy ý */
 }
 
 .left-img {
@@ -174,6 +173,18 @@ h1 {
 .right-img {
     right: 0;
 }
+
+/* Nội dung chính ở giữa, tránh bị đè */
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
 /* Giao diện cho điện thoại - ẩn ảnh hai bên */
 @media screen and (max-width: 768px) {
     .side-images,
@@ -296,6 +307,7 @@ h1 {
     box-sizing: border-box;
     border-radius: 4px;
 }
+
 
 
 
