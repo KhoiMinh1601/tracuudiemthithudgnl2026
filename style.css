@@ -241,6 +241,46 @@ h1 {
         font-size: 14px;
     }
 }
+/* Giới hạn vùng hiển thị thanh điểm và ngăn tràn ra ngoài */
+.score-report {
+    overflow-x: hidden; /* 🔹 tránh tràn ngang */
+}
+
+.score-bars {
+    max-width: 100%;
+    overflow: hidden; /* 🔹 ẩn phần bar vượt khung */
+}
+
+.score-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    gap: 8px;
+}
+
+.score-bar {
+    flex: 1;
+    background: #e5e7eb;
+    height: 22px;
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.score-bar-fill {
+    background: #1e40af;
+    color: white;
+    font-size: 13px;
+    line-height: 22px;
+    padding-right: 5px;
+    white-space: nowrap;
+    text-align: right;
+    box-sizing: border-box;
+}
+
 
 
 
