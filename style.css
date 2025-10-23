@@ -213,11 +213,17 @@ h1 {
     border-radius: 40px;
 }
 
-/* ======= GIAO DIỆN CHO MOBILE ======= */
+/* Giao diện cho điện thoại - ẩn ảnh hai bên */
 @media screen and (max-width: 768px) {
     .side-images,
     .side-img {
         display: none !important;
+    }
+
+    body {
+        padding: 20px 10px;
+        flex-direction: column;
+        align-items: stretch;
     }
 
     .container {
@@ -231,35 +237,23 @@ h1 {
         max-width: 80%;
     }
 
-    h1 {
+   h1 {
         font-size: 1.4rem;
     }
-
-    .search-container {
+       .search-container {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        flex-direction: column; /* Đặt nút xuống dưới ô nhập */
+        align-items: center;    /* Canh giữa */
+        gap: 10px;              /* 🔹 Tạo khoảng cách giữa ô và nút */
     }
-
     #sbdInput {
-        width: 100%;
+        width: 70%;
         font-size: 15px;
     }
 
     #searchBtn {
-        width: 100%;
-        font-size: 15px;
         padding: 10px 16px;
-    }
-
-    .student-info-box strong {
-        width: 130px;
-        font-size: 14px;
-    }
-
-    .student-info-box p {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .score-item span:first-child {
@@ -276,4 +270,16 @@ h1 {
         padding: 5px 20px;
     }
 }
+/* Điều chỉnh khoảng cách thông tin học sinh trên điện thoại */
+@media screen and (max-width: 768px) {
+    .student-info-box strong {
+        width: 130px; /* giảm từ 200 xuống còn 130 */
+        font-size: 14px;
+    }
+
+    .student-info-box p {
+        font-size: 14px;
+    }
+}
+
 
