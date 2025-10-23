@@ -273,7 +273,7 @@ h1 {
 /* Điều chỉnh khoảng cách thông tin học sinh trên điện thoại */
 @media screen and (max-width: 768px) {
     .student-info-box strong {
-        width: 130px; /* giảm từ 200 xuống còn 130 */
+        width: 100px; /* giảm từ 200 xuống còn 130 */
         font-size: 14px;
     }
 
@@ -281,5 +281,6 @@ h1 {
         font-size: 14px;
     }
 }
+
 
 
